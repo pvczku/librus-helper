@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Librus Helper",
+  "version": "0.0.1",
+  "action": {
+    "browser_style": false,
+    "default_area": "navbar",
+    "default_icon": {
+      "16": "icon16.png",
+      "32": "icon32.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "default_popup": "",
+    "default_title": "Librus Helper",
+    "theme_icons": {
+      "light": "",
+      "dark": "",
+      "size": 24
+    }
+  },
+  "author": "Patryk Kulma, Dawid Komęza",
+  "background": {
+    "scripts": [],
+    "persistent": false,
+    "type": "module"
+  },
+  "browser_specific_settings": {},
+  "content_scripts": [{}],
+  "default_locale": "en",
+  "description": "A plain text description",
+  "icons": {},
+  "developers": [
+    {
+      "name": "Patryk Kulma",
+      "url": "https://github.com/pvczku"
+    },
+    {
+      "name": "Dawid Komęza",
+      "url": "https://github.com/dkomeza"
+    }
+  ]
+}
