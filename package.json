@@ -1,0 +1,27 @@
+{
+  "name": "librus-helper",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./scripts/script.js",
+  "types": "./scripts/script.d.ts",
+  "repository": "https://github.com/pvczku/librus-helper",
+  "author": "Patryk Kulma, Dawid Komeza <dawid.komeza@outlook.com>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon ./scripts/script.js \"",
+    "build": "tsc",
+    "test": "vitest --coverage",
+    "coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "@types/node": "^18.14.6",
+    "@types/supertest": "^2.0.12",
+    "@vitest/coverage-c8": "^0.29.7",
+    "@vitest/coverage-istanbul": "^0.29.7",
+    "blns": "^2.0.4",
+    "supertest": "^6.3.3",
+    "superwstest": "^2.0.3",
+    "vitest": "^0.29.7"
+  }
+}
