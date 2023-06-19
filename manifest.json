@@ -19,6 +19,6 @@
   "author": "Patryk Kulma, Dawid Komęza",
   "background.service_worker": [],
   "content_scripts": [],
-  "description": "A plain text description",
+  "description": "A Google Chrome extension which improves the Librus e-gradebook students' experience.",
   "icons": {}
 }
