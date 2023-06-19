@@ -1,7 +1,7 @@
 {
   "name": "librus-helper",
   "version": "0.0.1",
-  "description": "",
+  "description": "A Google Chrome extension which improves the Librus e-gradebook students' experience.",
   "main": "./scripts/script.js",
   "types": "./scripts/script.d.ts",
   "repository": "https://github.com/pvczku/librus-helper",
