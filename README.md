@@ -2,6 +2,8 @@
 
 ---
 
+A Google Chrome extension which improves the Librus e-gradebook students' experience.
+
 ## Table of contents:
 
 ---
