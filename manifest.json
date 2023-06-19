@@ -4,21 +4,25 @@
   "version": "0.0.1",
   "action": {
     "browser_style": false,
-    "default_area": "navbar",
-    "default_icon": {
-      
-    },
-    "default_popup": "",
     "default_title": "Librus Helper",
-    "theme_icons": {
-      "light": "",
-      "dark": "",
-      "size": 24
-    }
+    "default_popup": "popup.html"
   },
-  "author": "Patryk Kulma, Dawid Komęza",
-  "background.service_worker": [],
-  "content_scripts": [],
+  "default_locale": "en",
   "description": "A Google Chrome extension which improves the Librus e-gradebook students' experience.",
-  "icons": {}
+  "icons": {
+    "16": "public/icons/16x16.png",
+    "32": "public/icons/32x32.png",
+    "64": "public/icons/64x64.png",
+    "128": "public/icons/128x128.png",
+    "256": "public/icons/256x256.png",
+    "512": "public/icons/512x512.png"
+  },
+  "background": {
+    "service_worker": "scripts/build/background.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+    "https://synergia.librus.pl/*"
+  ],
+  "author": "Patryk Kulma"
 }
