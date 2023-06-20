@@ -21,6 +21,7 @@ class Grades {
     this.pointGradesTable = document.getElementsByClassName("decorated stretch")[2]!.children[1]!.children;
     this.getRegularGrades();
     this.getPointGrades();
+    this.displayAverage();
   }
 
   ping() {
@@ -42,7 +43,7 @@ class Grades {
           if (grades[j]!.innerHTML.includes("Okres")) {
             semester++;
           } else {
-            if (grades[j]?.children[6]?.innerHTML !== "") {
+            if (grades[j]?.children[6]?.innerHTML !== "" && grades[j]?.children[0]?.innerHTML! !== "np") {
               const grade =
                 grades[j]?.children[0]?.innerHTML!.length! > 1
                   ? parseFloat(grades[j]?.children[0]?.innerHTML[0]!) + 0.5
@@ -88,6 +89,91 @@ class Grades {
       }
     }
     console.log(this.pointGrades);
+  }
+
+  calculateAverage(array: [Grade[], Grade[]], method: string) {
+    if (method === "regular") {
+      let avg1sum = 0;
+      let avg1weight = 0;
+      for (let i = 0; i < array[0].length; i++) {
+        avg1sum += array[0][i]!.value * array[0][i]!.weight;
+      }
+      for (let i = 0; i < array[0].length; i++) {
+        avg1weight += array[0][i]!.weight;
+      }
+      let avg1 = avg1sum / avg1weight;
+      console.log(avg1);
+
+      let avg2sum = 0;
+      let avg2weight = 0;
+      for (let i = 0; i < array[1].length; i++) {
+        avg2sum += array[1][i]!.value * array[1][i]!.weight;
+      }
+      for (let i = 0; i < array[1].length; i++) {
+        avg2weight += array[1][i]!.weight;
+      }
+      let avg2 = avg2sum / avg2weight;
+      console.log(avg2);
+      return [avg1, avg2, (avg1sum + avg2sum) / (avg1weight + avg2weight)];
+    } else {
+      let avg1sum = 0;
+      let avg1weight = 0;
+      for (let i = 0; i < array[0].length; i++) {
+        avg1sum += array[0][i]!.value;
+      }
+      for (let i = 0; i < array[0].length; i++) {
+        avg1weight += array[0][i]!.weight;
+      }
+      let avg1 = avg1sum / avg1weight;
+      console.log(avg1);
+
+      let avg2sum = 0;
+      let avg2weight = 0;
+      for (let i = 0; i < array[1].length; i++) {
+        avg2sum += array[1][i]!.value;
+      }
+      for (let i = 0; i < array[1].length; i++) {
+        avg2weight += array[1][i]!.weight;
+      }
+      let avg2 = avg2sum / avg2weight;
+      console.log(avg2);
+      return [avg1 * 100, avg2 * 100, ((avg1sum + avg2sum) / (avg1weight + avg2weight)) * 100];
+    }
+  }
+
+  displayAverage() {
+    if (Object.keys(this.regularGrades).length > 0 && Object.keys(this.pointGrades).length > 0) {
+      for (let i = 0; i < this.regularGradesTable!.length! - 2; i += 2) {
+        const tdArray = this.regularGradesTable[i]!.children!;
+        const tdArraySubject = this.formatSubjectName(tdArray[1]!.innerHTML);
+        for (let j = 0; j < Object.keys(this.regularGrades).length; j++) {
+          if (tdArraySubject === Object.keys(this.regularGrades)[j]) {
+            console.log(Object.keys(this.regularGrades)[j]);
+            const averages = this.calculateAverage(this.regularGrades[tdArraySubject]!.grades, "regular");
+            tdArray[3]!.innerHTML = String(averages[0]!.toFixed(2));
+            tdArray[7]!.innerHTML = String(averages[1]!.toFixed(2));
+            tdArray[10]!.innerHTML = String(averages[2]!.toFixed(2));
+          }
+        }
+      }
+    }
+    for (let i = 0; i < this.regularGradesTable!.length! - 2; i += 2) {
+      const tdArray = this.regularGradesTable[i]!.children!;
+      const tdArraySubject = this.formatSubjectName(tdArray[1]!.innerHTML);
+      for (let j = 0; j < Object.keys(this.pointGrades).length; j++) {
+        if (tdArraySubject === Object.keys(this.pointGrades)[j]) {
+          if (i === 0) {
+            console.log(tdArraySubject);
+          }
+          console.log(this.pointGrades[tdArraySubject]!.grades);
+          const averages = this.calculateAverage(this.pointGrades[tdArraySubject]!.grades, "point");
+          console.log(averages);
+          tdArray[3]!.innerHTML = String(averages[0]!.toFixed(2));
+          tdArray[7]!.innerHTML = String(averages[1]!.toFixed(2));
+          tdArray[10]!.innerHTML = String(averages[2]!.toFixed(2));
+        }
+      }
+    }
   }
 
   formatSubjectName(name: string) {
