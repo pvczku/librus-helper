@@ -4,5 +4,8 @@ The project aims at improving an overall experience while using Librus, adding f
 
 ## Ideas within the project:
 
-- Display an average note for every subject
-- Dark mode
+[ x ] - Display an average note for every subject
+[ ] - Display an average year ending note
+[ ] - Note correction including
+[ ] - Pluses and minuses including
+[ ] - Dark mode
