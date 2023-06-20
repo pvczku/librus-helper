@@ -5,3 +5,4 @@ The project aims at improving an overall experience while using Librus, adding f
 ## Ideas within the project:
 
 - Display an average note for every subject
+- Dark mode
