@@ -43,7 +43,12 @@ class Grades {
           if (grades[j]!.innerHTML.includes("Okres")) {
             semester++;
           } else {
-            if (grades[j]?.children[6]?.innerHTML !== "" && grades[j]?.children[0]?.innerHTML! !== "np") {
+            if (
+              grades[j]?.children[6]?.innerHTML !== "" &&
+              grades[j]?.children[0]?.innerHTML! !== "np" &&
+              grades[j]?.children[0]?.innerHTML! !== "+" &&
+              grades[j]?.children[0]?.innerHTML! !== "-"
+            ) {
               const grade =
                 grades[j]?.children[0]?.innerHTML!.length! > 1
                   ? parseFloat(grades[j]?.children[0]?.innerHTML[0]!) + 0.5
