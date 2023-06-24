@@ -91,11 +91,11 @@ class Grades {
   }
 
   calculateAverage(array: [Grade[], Grade[]], method: string) {
+    let avg1sum = 0;
+    let avg1weight = 0;
+    let avg2sum = 0;
+    let avg2weight = 0;
     if (method === "regular") {
-      let avg1sum = 0;
-      let avg1weight = 0;
-      let avg2sum = 0;
-      let avg2weight = 0;
       for (let i = 0; i < array[0].length; i++) {
         avg1sum += array[0][i]!.value * array[0][i]!.weight;
         avg1weight += array[0][i]!.weight;
@@ -106,10 +106,6 @@ class Grades {
       }
       return [avg1sum / avg1weight, avg2sum / avg2weight, (avg1sum + avg2sum) / (avg1weight + avg2weight)];
     } else {
-      let avg1sum = 0;
-      let avg1weight = 0;
-      let avg2sum = 0;
-      let avg2weight = 0;
       for (let i = 0; i < array[0].length; i++) {
         avg1sum += array[0][i]!.value;
         avg1weight += array[0][i]!.weight;
